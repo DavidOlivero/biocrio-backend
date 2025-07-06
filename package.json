@@ -1,0 +1,28 @@
+{
+  "name": "biocrio-backend",
+  "version": "1.0.0",
+  "description": "Este es un proyecto que corresponde al Backend del proyecto de la incubadora de la universidad UNAD",
+  "main": "src/index.js",
+  "type": "commonjs",
+  "scripts": {
+    "start:build": "tsc",
+    "start:dev": "nodemon --exec tsx src/index.ts",
+    "start:test": "vitest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/express": "^5.0.3",
+    "nodemon": "^3.1.10",
+    "supertest": "^7.1.1",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.20.3",
+    "typescript": "^5.8.3",
+    "vite-tsconfig-paths": "^5.1.4",
+    "vitest": "^3.2.4"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}

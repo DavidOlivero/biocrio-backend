@@ -1,0 +1,6 @@
+{
+  "watch": ["src"],
+  "ext": "ts",
+  "ignore": ["test"],
+  "exec": "ts-node-esm --transpile-only=false src/index.ts"
+}
