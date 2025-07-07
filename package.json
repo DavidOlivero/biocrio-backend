@@ -5,9 +5,9 @@
   "main": "src/index.js",
   "type": "commonjs",
   "scripts": {
-    "start:build": "tsc",
+    "start:build": "npm i && tsc",
     "start:dev": "nodemon --exec tsx src/index.ts",
-    "start:app": "nodemon build/index.js",
+    "start:app": "node build/index.js",
     "start:test": "vitest"
   },
   "keywords": [],
