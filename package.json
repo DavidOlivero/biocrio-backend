@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "type": "commonjs",
   "scripts": {
-    "start:build": "npm i && tsc",
+    "start:build": "npm i && tsc && tsc-alias",
     "start:dev": "nodemon --exec tsx src/index.ts",
     "start:app": "node build/index.js",
     "start:test": "vitest"
@@ -20,6 +20,7 @@
     "nodemon": "^3.1.10",
     "supertest": "^7.1.1",
     "ts-node": "^10.9.2",
+    "tsc-alias": "^1.8.16",
     "tsx": "^4.20.3",
     "typescript": "^5.8.3",
     "vite-tsconfig-paths": "^5.1.4",
