@@ -1,4 +1,5 @@
 import app from "config/server"
+import "infrastructure/web/routes/routers-module";
 
 const PORT = 3000
 
