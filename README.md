@@ -20,7 +20,7 @@ Desarrollar una plataforma integral que permita:
 - **Sistema de Alertas**: Notificaciones automáticas cuando los parámetros salen de los rangos establecidos
 
 ## 🏗️ Arquitectura del Sistema
-![Arquitectura](blob:https://onedrive.live.com/984a2962-cc45-4327-b030-b29d2fa6cc68)
+<img width="1600" height="1076" alt="imagen" src="https://github.com/user-attachments/assets/e7e4204c-682c-4ce8-91d8-243fe5bad5c5" />
 
 ## ✨ Características Principales
 
