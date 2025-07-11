@@ -97,16 +97,18 @@ src/
 ```
 
 ## 🔌 API Endpoints
-WebSocket
 
-Conexión: POST /websocket/set-conection
-Enviar Datos: POST /websocket/send-data
+**WebSocket**
+- Conexión: POST /websocket/set-conection
+- Enviar Datos: POST /websocket/send-data
 
-Eventos WebSocket
+**Eventos WebSocket**
+- message: Datos de sensores y comandos
+- connect: Confirmación de conexión
+- disconnect: Notificación de desconexión
 
-message: Datos de sensores y comandos
-connect: Confirmación de conexión
-disconnect: Notificación de desconexión
+**Dominio del servidor:** https://biocrio.onrender.com/
+
 
 ## 🛠️ Tecnologías Utilizadas
 
