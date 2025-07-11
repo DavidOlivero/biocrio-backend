@@ -61,8 +61,8 @@ Desarrollar una plataforma integral que permita:
 
 ```bash
 # Clonar el repositorio
-git clone https://github.com/DavidOlivero/biocrio
-cd biocrio-server
+git clone https://github.com/DavidOlivero/biocrio-backend
+cd biocrio-backend
 
 # Instalar dependencias
 
