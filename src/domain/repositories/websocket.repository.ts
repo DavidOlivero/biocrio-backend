@@ -1,6 +1,7 @@
-import { Server, IncomingMessage, ServerResponse } from "http";
+import { Server as HTPServer } from "node:http";
+import { Server as SocketIOServer } from "socket.io";
 
 export interface IWebSocketRepository {
-  initSocket(server: Server<typeof IncomingMessage, typeof ServerResponse>): void;
-  getSocketConection(): Server<typeof IncomingMessage, typeof ServerResponse>;
+  initSocket(server: HTPServer): void;
+  getSocketConection(): SocketIOServer;
 }

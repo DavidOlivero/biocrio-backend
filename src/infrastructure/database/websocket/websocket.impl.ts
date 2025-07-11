@@ -1,14 +1,28 @@
 import { IWebSocketRepository } from "domain/repositories/websocket.repository";
-import { IncomingMessage, Server, ServerResponse } from "http";
+import { Server as SocketIOServer } from "socket.io";
+import { Server as HTTPServer } from "node:http";
 
 export class WebSocketConectionImpl implements IWebSocketRepository {
-  private ioInstance!: Server<typeof IncomingMessage, typeof ServerResponse>;
+  private static instance: WebSocketConectionImpl;
+  private ioInstance!: SocketIOServer;
 
-  public initSocket(server: Server<typeof IncomingMessage, typeof ServerResponse>): void {
-    const io = new Server(server);
+  public static getInstance(): WebSocketConectionImpl {
+    if (!this.instance) {
+      this.instance = new WebSocketConectionImpl();
+    }
+    return this.instance;
+  }
 
-    io.on('connection', () => {
-      console.log('Client has conected')
+  public initSocket(server: HTTPServer): void {
+    const io = new SocketIOServer(server, {
+      cors: {
+        origin: '*',
+        methods: ['GET', 'POST']
+      }
+    });
+
+    io.on('connection', (socket) => {
+      console.log('📡 Cliente conectado con ID:', socket.id);
     });
 
     this.ioInstance = io;
@@ -16,7 +30,7 @@ export class WebSocketConectionImpl implements IWebSocketRepository {
   }
 
 
-  public getSocketConection(): Server<typeof IncomingMessage, typeof ServerResponse> {
+  public getSocketConection(): SocketIOServer {
     if (!this.ioInstance) {
       throw new Error("Socket.IO no ha sido inicializado. Llama a initSocketIO primero.");
     }

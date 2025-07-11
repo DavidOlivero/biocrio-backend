@@ -5,7 +5,7 @@ export class WebSocketConectionUseCases {
   private websocketHandler: WebSocketConectionImpl
 
   constructor() {
-    this.websocketHandler = new WebSocketConectionImpl()
+    this.websocketHandler = WebSocketConectionImpl.getInstance()
   }
 
   public setConection(): void {
@@ -13,6 +13,7 @@ export class WebSocketConectionUseCases {
   }
 
   public sendMessage(): void {
+    console.log('🟢 Enviando mensaje a los clientes WebSocket');
     this.websocketHandler.getSocketConection().emit('message', {
       message: 'Evento enviado desde el servidor',
       creationDate: new Date().getDate()

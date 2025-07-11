@@ -2,10 +2,7 @@ import { Request, Response } from "express";
 import { WebSocketConectionUseCases } from "application/use-cases/websocket/websocket-conection";
 
 export class WebSocketController {
-  private websocketUseCases: WebSocketConectionUseCases
-  constructor() {
-    this.websocketUseCases = new WebSocketConectionUseCases()
-  }
+  private websocketUseCases: WebSocketConectionUseCases = new WebSocketConectionUseCases()
 
   public setConection(): (req: Request, res: Response) => void {
     return (_req: Request, res: Response) => {
