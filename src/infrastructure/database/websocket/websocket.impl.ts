@@ -1,10 +1,14 @@
-import { IWebSocketRepository } from 'domain/repositories/websocket.repository';
-import { Server as SocketIOServer } from 'socket.io';
 import { Server as HTTPServer } from 'node:http';
 
+import { IWebSocketRepository } from 'domain/repositories/websocket.repository';
+import { BashScripts } from 'shared/enum/bash-scripts.enum';
+import { WebsocketEvents } from 'shared/enum/websocket-events.enum';
+import { Utils } from 'shared/utils/utils';
+import { DefaultEventsMap, Server as SocketIOServer, Socket } from 'socket.io';
+
 export class WebSocketConectionImpl implements IWebSocketRepository {
-  private static instance: WebSocketConectionImpl;
-  private ioInstance!: SocketIOServer;
+  private static instance: WebSocketConectionImpl | undefined;
+  private ioInstance!: SocketIOServer | undefined;
 
   public static getInstance(): WebSocketConectionImpl {
     if (!this.instance) {
@@ -21,9 +25,14 @@ export class WebSocketConectionImpl implements IWebSocketRepository {
       },
     });
 
-    io.on('connection', (socket) => {
-      console.log('📡 Cliente conectado con ID:', socket.id);
-    });
+    io.on(
+      WebsocketEvents.Connection,
+      (
+        socket: Socket<DefaultEventsMap, DefaultEventsMap, DefaultEventsMap>,
+      ): void => {
+        Utils.executeBashScript(BashScripts.WebSocketConnection, [socket.id]);
+      },
+    );
 
     this.ioInstance = io;
     io;
