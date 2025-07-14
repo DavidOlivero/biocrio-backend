@@ -1,11 +1,15 @@
 import { Router } from 'express';
-import { WebSocketController } from '../../controllers/websocket/websocket.controller';
+import { WebSocketController } from 'infrastructure/web/controllers/websocket/websocket.controller';
+import { UrisPath } from 'shared/enum/uris-path.const';
 
 const webSocketRouter = Router();
 const webSocketController = new WebSocketController();
 
-webSocketRouter.route('/');
-webSocketRouter.post('/set-conection', webSocketController.setConection());
-webSocketRouter.post('/send-data', webSocketController.sendMessage());
+webSocketRouter.route(UrisPath.BaseUri);
+webSocketRouter.post(
+  UrisPath.SetConnection,
+  webSocketController.setConection(),
+);
+webSocketRouter.post(UrisPath.SendData, webSocketController.sendMessage());
 
 export default webSocketRouter;
