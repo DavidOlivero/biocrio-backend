@@ -13,7 +13,6 @@ export class WebSocketConectionUseCases {
   }
 
   public sendMessage(): void {
-    console.log('🟢 Enviando mensaje a los clientes WebSocket');
     this.websocketHandler.getSocketConection().emit('message', {
       message: 'Evento enviado desde el servidor',
       creationDate: new Date().getDate(),
