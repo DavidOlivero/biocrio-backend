@@ -173,7 +173,7 @@ npm run start:test
 - Push a la rama (git push origin feature/ticket-link-AmazingFeature)
 - Abrir un Pull Request
 
-**Nota:** El ticket-link va a ser el número de la tarea para el caso de los integrantes del proyecto o el número de la PR ofrecida por github en el caso de colaboradores externos.
+**Nota:** El ticket-link va a ser el número de la tarea para el caso de los integrantes del proyecto. De lo contrario usar [no-ticket].
 
 ## 📝 Licencia
 Este proyecto está bajo la Licencia MIT.
