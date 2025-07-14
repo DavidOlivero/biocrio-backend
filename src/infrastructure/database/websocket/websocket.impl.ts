@@ -1,6 +1,6 @@
-import { IWebSocketRepository } from "domain/repositories/websocket.repository";
-import { Server as SocketIOServer } from "socket.io";
-import { Server as HTTPServer } from "node:http";
+import { IWebSocketRepository } from 'domain/repositories/websocket.repository';
+import { Server as SocketIOServer } from 'socket.io';
+import { Server as HTTPServer } from 'node:http';
 
 export class WebSocketConectionImpl implements IWebSocketRepository {
   private static instance: WebSocketConectionImpl;
@@ -17,8 +17,8 @@ export class WebSocketConectionImpl implements IWebSocketRepository {
     const io = new SocketIOServer(server, {
       cors: {
         origin: '*',
-        methods: ['GET', 'POST']
-      }
+        methods: ['GET', 'POST'],
+      },
     });
 
     io.on('connection', (socket) => {
@@ -29,10 +29,11 @@ export class WebSocketConectionImpl implements IWebSocketRepository {
     io;
   }
 
-
   public getSocketConection(): SocketIOServer {
     if (!this.ioInstance) {
-      throw new Error("Socket.IO no ha sido inicializado. Llama a initSocketIO primero.");
+      throw new Error(
+        'Socket.IO no ha sido inicializado. Llama a initSocketIO primero.',
+      );
     }
     return this.ioInstance;
   }

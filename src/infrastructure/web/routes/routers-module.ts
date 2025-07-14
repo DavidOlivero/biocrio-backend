@@ -1,4 +1,4 @@
-import { app } from "config/server";
-import webSocketRouter from "./websocket/websocket.routes";
+import { app } from 'config/server';
+import webSocketRouter from './websocket/websocket.routes';
 
-app.use('/websocket', webSocketRouter)
+app.use('/websocket', webSocketRouter);
